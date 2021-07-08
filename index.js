@@ -77,9 +77,6 @@ function newTeamMember() {
                     employees.push(member)
                     if (moreTeam === `yes`) {
                         newTeamMember();
-                    } else if (moreTeam === `no`) {
-                        buildTeam();
-                        console.log("A file containing your team has been created")
                     }
                     console.log(employees);
                 })
@@ -94,7 +91,7 @@ function newTeamMember() {
 };
 
 function buildTeam() {
-    fs.writeFileSync(outputPath, render(newTeamMember), 'utf-8');
+    fs.writeFile(outputPath, render(newTeamMember));
 }
 
-newTeamMember();
+newTeamMember()
