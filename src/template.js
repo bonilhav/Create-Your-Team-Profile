@@ -31,7 +31,7 @@ const generateTeam = employees => {
                     <ul class="list-group list-group-flush border">
                         <li class="list-group-item">ID: ${engineer.getId()}</li>
                         <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}</li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
                     </ul>
                 </div>
             </div>
