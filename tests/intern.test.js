@@ -4,11 +4,11 @@ describe('Intern', () => {
     it('should set the school', () => {
         const testValue = "ABC School";
         const e = new Intern ("Vern", 123, "example@example.com", testValue);
-        expect(e.school).totoBe(testValue);
+        expect(e.school).toBe(testValue);
     });
     
     it('should return Intern for getRole()', () => {
-        const testValue = "Intern ";
+        const testValue = "Intern";
         const e = new Intern ("Vern", 123, "example@example.com", testValue);
         expect(e.getRole()).toBe(testValue);
     });

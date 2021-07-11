@@ -6,11 +6,11 @@ const path = require('path');
 const fs = require('fs');
 
 const OUTPUT_DIR = path.resolve(__dirname, "dist");
-const outputPath = path.join(OUTPUT_DIR, "index.html")
+const outputPath = path.join(OUTPUT_DIR, "index.html");
 
 const render = require('./src/template');
 
-const employees = [];
+const employee = [];
 
 //intern’s name, ID, email, and school
 //engineer’s name, ID, email, and GitHub username
@@ -74,15 +74,16 @@ function newTeamMember() {
                     } else if (role === 'Intern') {
                         member = new Intern(name, id, email, additionalInfo)
                     }
-                    employees.push(member)
+                    employee.push(member)
                     if (moreTeam === `yes`) {
                         newTeamMember();
+                    } else if (moreTeam === `no`) {
+                        buildTeam();
                     }
-                    console.log(employees);
                 })
-                .catch((error) => {
+/*                 .catch((error) => {
                     console.error("err");
-                })
+                }) */
         })
         .catch((error) => {
             console.error("error");
@@ -91,7 +92,9 @@ function newTeamMember() {
 };
 
 function buildTeam() {
-    fs.writeFile(outputPath, render(newTeamMember));
+    fs.writeFile(outputPath, render(employee), (err) => {
+        if (err) {console.error("Err")}
+    });
 }
 
 newTeamMember()
